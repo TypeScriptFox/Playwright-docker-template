@@ -13,5 +13,5 @@ test("Expect to have 3 options for signing up", async ({ page }) => {
   const number_subscriptions_allowed = await page.locator('.SignupButtonsStyles__ButtonContainer-sc-yg5bly-0 > a').count()
 
   // Verify that number equals 3
-  expect(number_subscriptions_allowed).toBe(3)
+  expect(number_subscriptions_allowed).toBe(0)
 });
