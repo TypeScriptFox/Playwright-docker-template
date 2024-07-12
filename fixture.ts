@@ -12,4 +12,5 @@ declare global {
 
 export default {
   DIGITAL_OCEAN_URL: config.digital_ocean_url ?? '',
+  ULTIMATE_QA_URL: config.ultimate_qa_url
   };

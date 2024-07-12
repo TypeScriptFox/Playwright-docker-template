@@ -3,5 +3,5 @@
     "strict": true,
     "module": "commonjs"
   },
-  "include": ["tests"]
+  "include": ["tests", "fixture.ts"]
 }
