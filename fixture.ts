@@ -1,14 +1,16 @@
-//base.js
 import base = require('@playwright/test');
-const { LoginPage: HomePage } = require('./pages/homepage/homepagePage')
-const { DashboardPage } = require('../pages/DashboardPage');
+import {HomePage} from './pages/homepage/homepagePage'
 
-exports.test = base.test.extend({
-    loginPage: async ({ page }, use) => {
+const test = base.test.extend({
+    homePage: async ({ page }, use) => {
+        const homePage: HomePage = new HomePage(page)
         await use(new HomePage(page));
-    },
-    dashboardPage: async ({ page }, use) => {
-        await use(new DashboardPage(page));
-    },
+    }
 });
-exports.expect = base.expect;
+
+const baseURL: string = "https://ultimateqa.com/"
+
+export {
+    baseURL,
+    test
+}
