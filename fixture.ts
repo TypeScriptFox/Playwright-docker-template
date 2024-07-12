@@ -1,16 +1,14 @@
-import { Browser, Page } from "playwright";
+//base.js
+import base = require('@playwright/test');
+const { LoginPage: HomePage } = require('./pages/homepage/homepagePage')
+const { DashboardPage } = require('../pages/DashboardPage');
 
-import fs from 'fs';
-import toml from 'toml';
-const config = toml.parse(fs.readFileSync('./config.toml', 'utf-8'));
-
-declare global {
-  const page: Page;
-  const browser: Browser;
-  const browserName: string;
-}
-
-export default {
-  DIGITAL_OCEAN_URL: config.digital_ocean_url ?? '',
-  ULTIMATE_QA_URL: config.ultimate_qa_url
-  };
+exports.test = base.test.extend({
+    loginPage: async ({ page }, use) => {
+        await use(new HomePage(page));
+    },
+    dashboardPage: async ({ page }, use) => {
+        await use(new DashboardPage(page));
+    },
+});
+exports.expect = base.expect;
