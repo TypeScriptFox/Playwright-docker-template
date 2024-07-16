@@ -1,5 +1,5 @@
 import { Page, Locator } from '@playwright/test';
-import {baseURL} from '../../fixture'; 
+import {baseURL} from '../../fixture';
 
 export class HomePage {
 
@@ -9,18 +9,22 @@ export class HomePage {
     topNavBar: Locator;
     servicesHyperlink: Locator;
     aboutHyperlink: Locator;
+    blogHyperlink: Locator;
+    educationHyperlink: Locator;
     //---
 
     siteLogo: Locator;
     URL: String;
     
-    constructor(page: Page) { 
+    constructor(page: Page) {
         this.page = page;
 
         //Top Nav Bar
         this.topNavBar = this.page.locator('#menu-main-menu');
         this.servicesHyperlink = this.page.locator('a >> "Services"')
-        this.aboutHyperlink = this.page.locator('a >> "Services"')
+        this.aboutHyperlink = this.page.locator('a >> "About"')
+        this.blogHyperlink = this.page.locator('a >> "Blog"');
+        this.educationHyperlink = this.page.locator('a >> "Education"');
         //---
 
         this.siteLogo = this.page.locator('//img[@class="wp-image-218123 lazyloaded"]');
@@ -32,7 +36,7 @@ export class HomePage {
         await this.page.goto(baseURL)
     }
 
-    getSiteLogo(): Locator { 
+    getSiteLogo(): Locator {
         return this.siteLogo;
     }
 
@@ -45,6 +49,14 @@ export class HomePage {
     }
 
     getAboutHyperlink(): Locator {
-        return this.servicesHyperlink;
+        return this.aboutHyperlink;
+    }
+
+    getBlogHyperlink(): Locator {
+        return this.blogHyperlink;
+    }
+
+    getEducationHyperlink(): Locator {
+        return this.educationHyperlink;
     }
 }
