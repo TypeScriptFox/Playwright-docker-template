@@ -22,9 +22,9 @@ export class HomePage {
         //Top Nav Bar
         this.topNavBar = this.page.locator('#menu-main-menu');
         this.servicesHyperlink = this.page.locator('a >> "Services"')
-        this.aboutHyperlink = this.page.locator('a >> "About"')
-        this.blogHyperlink = this.page.locator('a >> "Blog"');
-        this.educationHyperlink = this.page.locator('a >> "Education"');
+        this.aboutHyperlink = this.page.locator('#menu-main-menu > li:nth-child(2) > a:nth-child(1) >> "About"')
+        this.blogHyperlink = this.page.locator('#menu-main-menu > li:nth-child(3) > a:nth-child(1) >> "Blog"');
+        this.educationHyperlink = this.page.locator('#menu-main-menu > li:nth-child(4) > a:nth-child(1) >> "Education"');
         //---
 
         this.siteLogo = this.page.locator('//img[@class="wp-image-218123 lazyloaded"]');
