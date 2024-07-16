@@ -16,3 +16,16 @@ test("Expect top nav bar to have 'Services', 'About', 'Blog', and Education'", a
   await expect(homePage.getBlogHyperlink()).toBeVisible();
   await expect(homePage.getEducationHyperlink()).toBeVisible();
 });
+
+test("Expect to see 'Free Courses', 'Selenium Java', and 'Selenium C#' when hovering over Education", async ({ homePage }) => {
+  await homePage.getEducationHyperlink().hover();
+  await expect(homePage.getCoursesDropdown()).toBeVisible();
+  await expect(homePage.getCoursesDropdown()).toContainText('Free Courses');
+  await expect(homePage.getCoursesDropdown()).toContainText('Selenium Java');
+  await expect(homePage.getCoursesDropdown()).toContainText('Selenium C#');
+})
+
+//test("Expect all dropdown options to have font-family Open Sans, Helvetica, Ariel, Lucida, and sans-serif", async ({ homePage }) => {
+//  await homePage.getEducationHyperlink().hover();
+//  await expect(homePage.getCoursesDropdown()).toHaveCSS('font-family', 'Open Sans, Helvetica, Arial, Lucida, sans-serif');
+//})
