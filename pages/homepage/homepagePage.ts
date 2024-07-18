@@ -3,16 +3,18 @@ import {baseURL} from '../../fixture';
 
 export class HomePage {
 
-    page: Page;
+    private page: Page;
 
     //Top Nav Bar
-    topNavBar: Locator;
-    servicesHyperlink: Locator;
-    aboutHyperlink: Locator;
+    private topNavBar: Locator;
+    private servicesHyperlink: Locator;
+    private aboutHyperlink: Locator;
+    private blogHyperlink: Locator;
+    private educationHyperlink: Locator;
     //---
 
-    siteLogo: Locator;
-    URL: String;
+    private siteLogo: Locator;
+    private URL: String;
     
     constructor(page: Page) { 
         this.page = page;
@@ -21,6 +23,8 @@ export class HomePage {
         this.topNavBar = this.page.locator('#menu-main-menu');
         this.servicesHyperlink = this.page.locator('a >> "Services"')
         this.aboutHyperlink = this.page.locator('a >> "Services"')
+        this.blogHyperlink = this.page.locator('.menu-item-218226 >> a >> "Blog"')
+        this.educationHyperlink = this.page.locator('.menu-item-218225 >> a  >> "Education"')
         //---
 
         this.siteLogo = this.page.locator('//img[@class="wp-image-218123 lazyloaded"]');
@@ -46,5 +50,13 @@ export class HomePage {
 
     getAboutHyperlink(): Locator {
         return this.servicesHyperlink;
+    }
+
+    getBlogHyperlink(): Locator {
+        return this.blogHyperlink;
+    }
+
+    getEducationHyperlink(): Locator {
+        return this.educationHyperlink;
     }
 }

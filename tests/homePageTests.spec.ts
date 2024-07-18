@@ -13,4 +13,6 @@ test("Expect to see site Logo", async ({ homePage }) => {
 test("Expect top nav bar to have 'Services', 'About', 'Blog', and Education'", async ({ homePage }) => {
   await expect(homePage.getServicesHyperlink()).toBeVisible();
   await expect(homePage.getAboutHyperlink()).toBeVisible();
+  await expect(homePage.getBlogHyperlink()).toBeVisible();
+  await expect(homePage.getEducationHyperlink()).toBeVisible();
 });
