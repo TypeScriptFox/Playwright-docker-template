@@ -32,3 +32,8 @@ test("Expect the sub menu options under Education to have font 'Open Sans',Helve
   await homePage.getEducationHyperlink().hover();
   await expect(homePage.getEducationDropDown()).toHaveCSS('font-family', '"Open Sans", Helvetica, Arial, Lucida, sans-serif');
 });
+
+test("Expect the sub menu options under Education to have font size 14px", async ({ homePage }) => {
+  await homePage.getEducationHyperlink().hover();
+  await expect(homePage.getEducationDropDown()).toHaveCSS('font-size', '14px');
+});
