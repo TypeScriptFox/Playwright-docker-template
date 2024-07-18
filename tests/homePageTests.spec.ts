@@ -27,3 +27,8 @@ test("Expect sub menu that contains the following: 'Free Courses', 'Selenium Jav
   await expect(homePage.getEducationDropDown()).toContainText('Automation Exercises');
   await expect(homePage.getEducationDropDown()).toContainText('Java SDET Academy');
 });
+
+test("Expect the sub menu options under Education to have font 'Open Sans',Helvetica,Arial,Lucida,sans-serif;", async ({ homePage }) => {
+  await homePage.getEducationHyperlink().hover();
+  await expect(homePage.getEducationDropDown()).toHaveCSS('font-family', '"Open Sans", Helvetica, Arial, Lucida, sans-serif');
+});
