@@ -37,3 +37,15 @@ test("Expect the sub menu options under Education to have font size 14px", async
   await homePage.getEducationHyperlink().hover();
   await expect(homePage.getEducationDropDown()).toHaveCSS('font-size', '14px');
 });
+
+test("Expect the sub menu options under Education to have font weight 500", async ({ homePage }) => {
+  await homePage.getEducationHyperlink().hover();
+  await expect(homePage.getEducationDropDown()).toHaveCSS('font-weight', '500');
+});
+
+test("Expect the sub menu do not be visible when mouse is moved outside menu area", async ({ homePage }) => {
+  await homePage.getEducationHyperlink().hover();
+  await expect(homePage.getEducationDropDown()).toBeVisible();
+  await homePage.getServicesHyperlink().hover();
+  await expect(homePage.getEducationDropDown()).not.toBeVisible();
+});
