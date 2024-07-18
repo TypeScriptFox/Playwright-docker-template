@@ -49,3 +49,8 @@ test("Expect the sub menu do not be visible when mouse is moved outside menu are
   await homePage.getServicesHyperlink().hover();
   await expect(homePage.getEducationDropDown()).not.toBeVisible();
 });
+
+test("Expect the 'Schedule a free discover session' button to have font color #003c96 when hovered over", async ({ homePage }) => {
+  await homePage.getFreeDiscoverSessionButtonBlue().hover();
+  await expect(homePage.getFreeDiscoverSessionButtonBlue()).toHaveCSS('color', 'rgb(0, 60, 150)');
+});

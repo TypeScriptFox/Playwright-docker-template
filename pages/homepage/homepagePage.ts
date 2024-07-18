@@ -11,6 +11,7 @@ export class HomePage {
     private educationDropDown: Locator;
     private siteLogo: Locator;
     private URL: string;
+    private freeDiscoverSessionButtonBlue: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -22,6 +23,7 @@ export class HomePage {
         this.educationDropDown = this.page.locator('#menu-main-menu > #menu-item-218225  > ul.sub-menu');
         this.siteLogo = this.page.locator('//img[@class="wp-image-218123 lazyloaded"]');
         this.URL = baseURL;
+        this.freeDiscoverSessionButtonBlue = this.page.locator('.et_pb_button_0');
     }
 
     async goTo() {
@@ -55,5 +57,9 @@ export class HomePage {
 
     getEducationDropDown(): Locator {
         return this.educationDropDown;
+    }
+
+    getFreeDiscoverSessionButtonBlue(): Locator {
+        return this.freeDiscoverSessionButtonBlue;
     }
 }
